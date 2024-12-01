@@ -1,0 +1,10 @@
+../Core/Src/gps_data_processing.c:89:1:prv_parse_number	9
+../Core/Src/gps_data_processing.c:121:1:prv_parse_float_number	10
+../Core/Src/gps_data_processing.c:156:1:prv_parse_lat_long	1
+../Core/Src/gps_data_processing.c:173:1:prv_parse_term	45
+../Core/Src/gps_data_processing.c:371:1:prv_check_crc	13
+../Core/Src/gps_data_processing.c:387:1:prv_copy_from_tmp_memory	5
+../Core/Src/gps_data_processing.c:449:1:lwgps_init	1
+../Core/Src/gps_data_processing.c:467:1:lwgps_process	10
+../Core/Src/gps_data_processing.c:518:1:lwgps_distance_bearing	6
+../Core/Src/gps_data_processing.c:594:1:lwgps_to_speed	16

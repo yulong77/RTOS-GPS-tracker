@@ -1,0 +1,2 @@
+../common/ThirdParty/SEGGER/Config/SEGGER_SYSVIEW_Config_FreeRTOS.c:87:13:_cbSendSystemDesc	1
+../common/ThirdParty/SEGGER/Config/SEGGER_SYSVIEW_Config_FreeRTOS.c:98:6:SEGGER_SYSVIEW_Conf	1
