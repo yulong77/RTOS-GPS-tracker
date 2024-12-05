@@ -38,7 +38,9 @@ This project is designed for the STM32F4-Discovery board and utilizes FreeRTOS t
 ## Getting Started
 ### Hardware Setup
 <img src="images/picture_2.jpg" alt="Project Image 2" width="500">
+
 * Connect the GPS module to the UART3 interface of the STM32F4-Discovery board.
+
   | GPS module pins | STM32F4 Disc pins |
   | :-----------: | :-----------:|
   | VCC | 5V  |
@@ -47,7 +49,8 @@ This project is designed for the STM32F4-Discovery board and utilizes FreeRTOS t
   | GND | GND |
   
 * Connect the 16x2 LCD screen module to the I2C1 interface of the STM32F4-Discovery board.
-  | GPS module pins | STM32F4 Disc pins |
+  
+  | LCD module pins | STM32F4 Disc pins |
   | :-----------: | :-----------:|
   | GND | GND |
   | VCC | 5V |
@@ -55,7 +58,8 @@ This project is designed for the STM32F4-Discovery board and utilizes FreeRTOS t
   | SCL | PB6 |
   
 * Connect the converter adapter to the STM32F4-Discovery board.
-  | GPS module pins | STM32F4 Disc pins |
+  
+  | Converter adapter pins | STM32F4 Disc pins |
   | :-----------: | :-----------:|
   | TX  | PA3 |
   | RX  | PA2 |
