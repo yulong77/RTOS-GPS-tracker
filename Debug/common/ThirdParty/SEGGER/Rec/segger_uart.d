@@ -1,12 +1,12 @@
 common/ThirdParty/SEGGER/Rec/segger_uart.o: \
  ../common/ThirdParty/SEGGER/Rec/segger_uart.c \
- /Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_004/common/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW.h \
- /Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_004/common/ThirdParty/SEGGER/SEGGER/SEGGER.h \
- /Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_004/common/ThirdParty/SEGGER/Config/Global.h \
- /Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_004/common/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW_ConfDefaults.h \
- /Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_004/common/ThirdParty/SEGGER/Config/SEGGER_SYSVIEW_Conf.h \
- /Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_004/common/ThirdParty/SEGGER/Config/SEGGER_RTT_Conf.h \
- /Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_004/common/ThirdParty/SEGGER/SEGGER/SEGGER_RTT.h \
+ /Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_003/common/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW.h \
+ /Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_003/common/ThirdParty/SEGGER/SEGGER/SEGGER.h \
+ /Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_003/common/ThirdParty/SEGGER/Config/Global.h \
+ /Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_003/common/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW_ConfDefaults.h \
+ /Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_003/common/ThirdParty/SEGGER/Config/SEGGER_SYSVIEW_Conf.h \
+ /Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_003/common/ThirdParty/SEGGER/Config/SEGGER_RTT_Conf.h \
+ /Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_003/common/ThirdParty/SEGGER/SEGGER/SEGGER_RTT.h \
  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h \
  ../Drivers/CMSIS/Include/core_cm4.h \
@@ -37,13 +37,13 @@ common/ThirdParty/SEGGER/Rec/segger_uart.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-/Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_004/common/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW.h:
-/Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_004/common/ThirdParty/SEGGER/SEGGER/SEGGER.h:
-/Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_004/common/ThirdParty/SEGGER/Config/Global.h:
-/Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_004/common/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW_ConfDefaults.h:
-/Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_004/common/ThirdParty/SEGGER/Config/SEGGER_SYSVIEW_Conf.h:
-/Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_004/common/ThirdParty/SEGGER/Config/SEGGER_RTT_Conf.h:
-/Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_004/common/ThirdParty/SEGGER/SEGGER/SEGGER_RTT.h:
+/Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_003/common/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW.h:
+/Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_003/common/ThirdParty/SEGGER/SEGGER/SEGGER.h:
+/Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_003/common/ThirdParty/SEGGER/Config/Global.h:
+/Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_003/common/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW_ConfDefaults.h:
+/Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_003/common/ThirdParty/SEGGER/Config/SEGGER_SYSVIEW_Conf.h:
+/Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_003/common/ThirdParty/SEGGER/Config/SEGGER_RTT_Conf.h:
+/Users/yulong/code/RTOS_GPS_project/RTOS_workspace/LCD_GPS_Tasks_003/common/ThirdParty/SEGGER/SEGGER/SEGGER_RTT.h:
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h:
 ../Drivers/CMSIS/Include/core_cm4.h:

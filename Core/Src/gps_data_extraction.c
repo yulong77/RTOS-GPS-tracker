@@ -32,7 +32,7 @@ void gps_data_extrac(struct gps_data_output *gps_data, char* gps_rx_data)
 #if TESTMODE_SWITCH
 
     // Select GPS data example
-	gps_rx_data_test = gps_rx_data_example_3;
+	gps_rx_data_test = gps_rx_data_example_4;
 
 	/* Use example data when TESTMODE is enabled */
     lwgps_process(&hgps, gps_rx_data_test, strlen(gps_rx_data_test));

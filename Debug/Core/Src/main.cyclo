@@ -9,7 +9,7 @@
 ../Core/Src/main.c:491:13:lcd_task_handler	2
 ../Core/Src/main.c:532:13:gps_data_receive_handler	1
 ../Core/Src/main.c:553:13:gps_data_process_handler	1
-../Core/Src/main.c:572:6:HAL_UART_RxCpltCallback	3
-../Core/Src/main.c:586:6:clear_GPS_buffer	1
-../Core/Src/main.c:603:6:HAL_TIM_PeriodElapsedCallback	2
-../Core/Src/main.c:620:6:Error_Handler	1
+../Core/Src/main.c:573:6:HAL_UART_RxCpltCallback	3
+../Core/Src/main.c:587:6:clear_GPS_buffer	1
+../Core/Src/main.c:604:6:HAL_TIM_PeriodElapsedCallback	2
+../Core/Src/main.c:621:6:Error_Handler	1

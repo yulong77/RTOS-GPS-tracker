@@ -30,5 +30,6 @@ extern const char gps_rx_data_example_1[];
 extern const char gps_rx_data_example_2[];
 extern const char gps_rx_data_example_3[];
 extern const char gps_rx_data_example_4[];
+extern const char gps_rx_data_example_5[];
 
 #endif /* LWGPS_OPTS_HDR_H */

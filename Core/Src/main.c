@@ -559,8 +559,9 @@ static void gps_data_process_handler(void* parameters)
 	{
 		SEGGER_SYSVIEW_PrintfTarget("GPS data process.");
 
-		// Extraction the GPS data.
 		gps_data_struct *gps_data_prt = &gps_data;
+
+		// Extraction the GPS data.
 		gps_data_extrac(gps_data_prt, gps_raw_data);
 
 		vTaskDelayUntil(&last_wakeup_time, pdMS_TO_TICKS(400)); // 400ms
