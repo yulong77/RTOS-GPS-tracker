@@ -1,8 +1,7 @@
 # RTOS-GPS-tracker
-A FreeRTOS-based GPS tracking project demonstrating task management, UART communication, and real-time data processing.
 This project is designed for the STM32F4-Discovery board and utilizes FreeRTOS to receive NMEA information from a GPS module via UART. The processed latitude and longitude information is then displayed on an LCD screen.
 
-<img src="images/picture_1.jpg" alt="Project Image 1" width="500">
+<img src="images/picture_1.jpg" alt="project_image_1.jpg" width="500">
 
 ## Table of Contents
 * Overview
@@ -37,7 +36,7 @@ A real-time GPS data processing system on STM32F4 using FreeRTOS. The project in
 
 ## Getting Started
 ### Hardware Setup
-<img src="images/picture_2.jpg" alt="Project Image 2" width="500">
+<img src="images/picture_2.jpg" alt="project_image_2.jpg" width="500">
 
 * Connect the GPS module to the UART3 interface of the STM32F4-Discovery board.
 
@@ -65,7 +64,7 @@ A real-time GPS data processing system on STM32F4 using FreeRTOS. The project in
   | RX  | PA2 |
   | GND | GND |
   
-* Connect the STM32F4-Discovery board to PC.
+* Connect the STM32F4-Discovery board to the PC.
 
 ### Software Setup
 * Clone this repository:
@@ -74,9 +73,13 @@ A real-time GPS data processing system on STM32F4 using FreeRTOS. The project in
 * Flash the firmware to the STM32F4-Discovery board.
 
 ## Usage
-* After flashing the firmware, the STM32F4-Discovery board will start receiving GPS data via UART.
+* After flashing the firmware, the STM32F4-Discovery board will receive GPS data via UART.
 * The processed latitude and longitude information will be displayed on the 16x2 LCD screen.
 * Use SEGGER SystemView to monitor and debug the FreeRTOS tasks.
+
+<img src="images/SEGGER_real_time_1.png" alt="SEGGER_real_time_1.png" width="500">
+
+<img src="images/SEGGER_real_time_2.png" alt="SEGGER_real_time_2.png" width="500">
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
