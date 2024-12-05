@@ -2,6 +2,8 @@
 A FreeRTOS-based GPS tracking project demonstrating task management, UART communication, and real-time data processing.
 This project is designed for the STM32F4-Discovery board and utilizes FreeRTOS to receive NMEA information from a GPS module via UART. The processed latitude and longitude information is then displayed on an LCD screen.
 
+<img src="images/picture_1.jpg" alt="Project Image 1" width="500">
+
 ## Table of Contents
 * Overview
 * Features
@@ -35,6 +37,7 @@ This project is designed for the STM32F4-Discovery board and utilizes FreeRTOS t
 
 ## Getting Started
 ### Hardware Setup
+<img src="images/picture_2.jpg" alt="Project Image 2" width="500">
 * Connect the GPS module to the UART3 interface of the STM32F4-Discovery board.
   | GPS module pins | STM32F4 Disc pins |
   | :-----------: | :-----------:|
