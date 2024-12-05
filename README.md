@@ -75,7 +75,7 @@ This project is designed for the STM32F4-Discovery board and utilizes FreeRTOS t
 * Use SEGGER SystemView to monitor and debug the FreeRTOS tasks.
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
 ___
 Feel free to contribute to this project by submitting issues or pull requests. 
