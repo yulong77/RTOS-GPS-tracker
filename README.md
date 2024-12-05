@@ -15,7 +15,7 @@ This project is designed for the STM32F4-Discovery board and utilizes FreeRTOS t
 * License
 
 ## Overview
-This project is designed for the STM32F4-Discovery board and utilizes FreeRTOS to receive NMEA information from a GPS module via UART. The processed latitude and longitude information is then displayed on an LCD screen.
+A real-time GPS data processing system on STM32F4 using FreeRTOS. The project involved receiving NMEA sentences from a GPS module, parsing and organizing the data, and displaying the processed information on an LCD screen. Debugging with SEGGER SystemView.
 
 ## Features
 * Receive GPS data via UART
