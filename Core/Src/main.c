@@ -29,6 +29,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "semphr.h"
+#include "stream_buffer.h"
 
 #include "STM32F407_I2C_LCD16x02_Driver.h"
 
@@ -79,15 +80,18 @@ static void gps_data_process_handler(void* parameters);
 
 extern void SEGGER_UART_init(uint32_t);
 
-void Clear_GPS_Buffer(void);
+static StreamBufferHandle_t gps_stream_buffer;
+static QueueHandle_t lcd_queue;
+
+//static void clear_GPS_Buffer(void);
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-#define GPS_DATA_LENGTH 256
+#define GPS_DATA_MAX_LENGTH 256
 
-char gps_raw_data[GPS_DATA_LENGTH + 1]; // GPS data receiving buffer
+char gps_raw_data[GPS_DATA_MAX_LENGTH + 1]; // GPS data receiving buffer
 volatile uint16_t gps_raw_index = 0; // Current receiving index
 uint8_t rx_char; // Receive ONE byte
 
@@ -140,7 +144,6 @@ int main(void)
   MX_USART3_UART_Init();
 
   /* USER CODE BEGIN 2 */
-
   SEGGER_UART_init(500000);
 
   //CYCLCNT enable
@@ -153,6 +156,7 @@ int main(void)
 
   /* Creating a binary semaphore */
   vSemaphoreCreateBinary(xBinarySemaphore);
+
 
   /* Tasks Creation */
   status = xTaskCreate(led_green_handler, "LED_green_task", 200, NULL, 2, &task1_handle);
@@ -172,6 +176,11 @@ int main(void)
 
   status = xTaskCreate(gps_data_process_handler, "GPS_data_process", 200, NULL, 2, &task6_handle);
   configASSERT(status == pdPASS);
+
+
+  gps_stream_buffer = xStreamBufferCreate(GPS_DATA_MAX_LENGTH, 1);
+  configASSERT(gps_stream_buffer != NULL);
+
 
   //start the freeRTOS scheduler
   vTaskStartScheduler();
@@ -490,6 +499,26 @@ static void led_red_handler(void* parameters)
 // LCD screen
 static void lcd_task_handler(void* parameters)
 {
+    lcd_message msg;
+
+    while (1)
+    {
+        if (xQueueReceive(lcd_queue, &msg, portMAX_DELAY) == pdTRUE)
+        {
+            switch (msg.type)
+            {
+            case MSG_TYPE_GPS:
+    		    LCD_Send_String(gps_data.longitude);
+    		    LCD_Send_Cmd(LCD_SET_ROW2_COL1);
+    		    LCD_Send_String(gps_data.latitude);
+            }
+        }
+
+        // Clear the gps_stream_buffer after processing the message
+        xStreamBufferReset(gps_stream_buffer);
+    }
+
+	/*
 	TickType_t last_wakeup_time;
 	last_wakeup_time = xTaskGetTickCount();
 
@@ -526,12 +555,24 @@ static void lcd_task_handler(void* parameters)
 
 		vTaskDelete(NULL);
 	}
+	*/
 }
 
 // GPS data receive
 static void gps_data_receive_handler(void* parameters)
 {
-    TickType_t last_wakeup_time;
+    char rx_data;
+    BaseType_t higher_priority_task_woken = pdFALSE;
+
+    while (uart_is_data_available()) {
+    	HAL_UART_Receive_IT(&huart3, (uint8_t *)&rx_data, 1);
+        xStreamBufferSendFromISR(gps_stream_buffer, &rx_data, 1, &higher_priority_task_woken);
+    }
+
+    portYIELD_FROM_ISR(higher_priority_task_woken);
+
+	/*
+	TickType_t last_wakeup_time;
     last_wakeup_time = xTaskGetTickCount();
 
     while(1)
@@ -547,11 +588,33 @@ static void gps_data_receive_handler(void* parameters)
 
         vTaskDelayUntil(&last_wakeup_time, pdMS_TO_TICKS(1000)); // 1000ms
     }
+    */
 }
 
 //GPS data process
 static void gps_data_process_handler(void* parameters)
 {
+    char rx_buffer[GPS_DATA_MAX_LENGTH];
+    lcd_message msg;
+
+    while (1) {
+        size_t received_length = xStreamBufferReceive(gps_stream_buffer,
+                                                      rx_buffer,
+                                                      GPS_DATA_MAX_LENGTH,
+                                                      portMAX_DELAY);
+
+        gps_data_struct *gps_data_prt = &gps_data;
+        if (received_length > 0) {
+        	gps_data_extrac(gps_data_prt, rx_buffer);
+            msg.type = MSG_TYPE_GPS;
+            msg.data = gps_data_prt;
+            msg.length = sizeof(gps_data_struct);
+
+        	xQueueSend(lcd_queue, &msg, portMAX_DELAY);
+        }
+    }
+
+	/*
 	TickType_t last_wakeup_time;
 	last_wakeup_time = xTaskGetTickCount();
 
@@ -559,13 +622,13 @@ static void gps_data_process_handler(void* parameters)
 	{
 		SEGGER_SYSVIEW_PrintfTarget("GPS data process.");
 
-		gps_data_struct *gps_data_prt = &gps_data;
-
 		// Extraction the GPS data.
+		gps_data_struct *gps_data_prt = &gps_data;
 		gps_data_extrac(gps_data_prt, gps_raw_data);
 
 		vTaskDelayUntil(&last_wakeup_time, pdMS_TO_TICKS(400)); // 400ms
 	}
+	*/
 }
 
 
@@ -573,14 +636,28 @@ static void gps_data_process_handler(void* parameters)
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 	if (huart->Instance == USART3) {
-		if (gps_raw_index < GPS_DATA_LENGTH) {
+		if (gps_raw_index < GPS_DATA_MAX_LENGTH) {
 		    gps_raw_data[gps_raw_index++] = rx_char;
 		}
 	    //gps_raw_data[gps_raw_index] = '\0'; // End with '\0'
 
-	    // Receive next byte
-	    HAL_UART_Receive_IT(&huart3, &rx_char, 1);
+        // Receive next byte
+		HAL_UART_Receive_IT(&huart3, &rx_char, 1);
     }
+}
+
+
+bool uart_is_data_available(void)
+{
+    return (__HAL_UART_GET_FLAG(&huart3, UART_FLAG_RXNE) != RESET);
+}
+
+
+uint8_t uart_read_byte(void)
+{
+    uint8_t data;
+    HAL_UART_Receive(&huart3, &data, 1, HAL_MAX_DELAY);
+    return data;
 }
 
 /* Clear GPS data buffer */
@@ -622,7 +699,10 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-
+    while(1)
+    {
+        // Blink an LED or send a message to a debug console
+    }
   /* USER CODE END Error_Handler_Debug */
 }
 
