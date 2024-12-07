@@ -4,14 +4,12 @@ This project is designed for the STM32F4-Discovery board and utilizes FreeRTOS t
 <img src="images/picture_1.jpg" alt="project_image_1.jpg" width="500">
 
 ## Table of Contents
-* Overview
-* Features
-* Hardware Requirements
-* Software Requirements
-* Project Structure
-* Getting Started
-* Usage
-* License
+- [Overview](#overview)
+- [Features](#features)
+- [Hardware Requirements](#hardware-requirements)
+- [Software Requirements](#software-requirements)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
 
 ## Overview
 A real-time GPS data processing system on STM32F4 using FreeRTOS. The project involved receiving NMEA sentences from a GPS module, parsing and organizing the data, and displaying the processed information on an LCD screen. Debugging with SEGGER SystemView.
